@@ -3,6 +3,7 @@ Smart Unity AssetBundle Builder
 特性
 自动分析依赖关系，避免资源重复打包
 自动化的打包粒度管理
+可以方便地导出查看原始资源的引用关系图
 
 Troubleshooting
 
@@ -35,6 +36,5 @@ SmartBundleBuilder提供了自动分析依赖关系功能，能识别被多次�
 # 如何实现
 SmartBundleBuilder是如何实现依赖关系的？
 
-SmartBundleBuilder利用Editor中的AssetDatabase.GetDependencies，对每一个需要打包的资源进行依赖关系分析，并生成一个[有向图](https://en.wikipedia.org/wiki/Directed_graph)来保存这些资源的依赖关系
-
+SmartBundleBuilder利用Editor中的AssetDatabase.GetDependencies方法，对每一个需要打包的资源进行依赖关系分析，并生成一个[有向图](https://en.wikipedia.org/wiki/Directed_graph)来保存这些资源的依赖关系
 
