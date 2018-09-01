@@ -1,9 +1,9 @@
 Smart Unity AssetBundle Builder
 
 特性
--自动分析依赖关系，避免资源重复打包
--自动化的打包粒度管理
--支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系，最终导出AssetBundle包的依赖关系
+*自动分析依赖关系，避免资源重复打包
+*自动化的打包粒度管理
+*支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系，最终导出AssetBundle包的依赖关系
 
 # Troubleshooting
 
