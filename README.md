@@ -98,5 +98,7 @@ SmartBundleBuilder主要分为个阶段
 
 [JGraphT，一个强大的图结构和算法的实现库](https://github.com/jgrapht/jgrapht)
 
+[Unity AssetBundle Reporter，冗余检测与资源分析工具 ](https://github.com/akof1314/AssetBundleReporter)
+
 
 
