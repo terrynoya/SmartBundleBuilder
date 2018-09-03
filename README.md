@@ -4,8 +4,11 @@
 
 特性
 *自动分析依赖关系，避免资源重复打包
+
 *自动化的打包粒度管理
+
 *支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系，最终导出AssetBundle包的依赖关系
+
 
 # Troubleshooting
 
@@ -99,6 +102,8 @@ SmartBundleBuilder主要分为个阶段
 [JGraphT，一个强大的图结构和算法的实现库](https://github.com/jgrapht/jgrapht)
 
 [Unity AssetBundle Reporter，冗余检测与资源分析工具 ](https://github.com/akof1314/AssetBundleReporter)
+
+[Hero开发笔记-客户端资源更新](http://www.dpull.com/blog/2015-01-23-hero_assetbundle)
 
 
 
