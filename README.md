@@ -54,6 +54,8 @@ SmartBundleBuilder利用Editor中的[EditorUtility.CollectDependencies](https://
 SmartBundleBuilder主要分为个阶段
 
 资源依赖关系分析阶段
+1.使用EditorUtility.CollectDependencies方法，对被分析的资源的依赖关系生成有向图
+2.删除重复的依赖关系
 
 资源合并阶段
 
@@ -100,8 +102,7 @@ SmartBundleBuilder主要分为个阶段
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_step_0.jpg)
 合并第一次
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_final.jpg)
-合并第二次
-
+合并第二次，完成
 
 
 # 参考知识链接
