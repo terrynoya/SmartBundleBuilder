@@ -104,6 +104,19 @@ SmartBundleBuilder主要分为个阶段
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_final.jpg)
 合并第二次，完成
 
+### 3.综合
+再来看一个复杂的例子，包含分析阶段和合并阶段
+
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_start.jpg)
+1.我们获得了一个资源依赖关系的有向图
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_reduct.jpg)
+2.简化重复的依赖关系
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_step_0.jpg)
+3.合并迭代一次
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_step_2.jpg)
+4.合并迭代二次
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_final.jpg)
+5.再无可合并的资源组，合并结束
 
 # 参考知识链接
 
