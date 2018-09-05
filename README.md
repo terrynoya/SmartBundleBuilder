@@ -105,7 +105,7 @@ SmartBundleBuilder主要分为个阶段
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_final.jpg)
 合并第二次，完成
 
-### 3.综合
+### 3.综合阶段1和2
 再来看一个复杂的例子，包含分析阶段和合并阶段
 
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_start.jpg)
@@ -118,6 +118,8 @@ SmartBundleBuilder主要分为个阶段
 4.合并迭代二次
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/complicate_final.jpg)
 5.再无可合并的资源组，合并结束
+
+### 4.打包阶段
 
 # 参考知识链接
 
