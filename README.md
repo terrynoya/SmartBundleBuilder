@@ -4,8 +4,11 @@
 
 特性
 *自动分析依赖关系，避免资源重复打包
+
 *自动化的打包粒度管理
+
 *支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系，最终导出AssetBundle包的依赖关系
+
 
 # Troubleshooting
 
@@ -62,6 +65,9 @@ SmartBundleBuilder主要分为个阶段
 
 这个阶段使用EditorUtility.CollectDependencies方法，对被分析的资源的依赖关系生成有向图
 如图所示
+
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/asset_depend_graph_by_api.jpg)
+
 可以看到T0.png->Aura03_Red_cube.prefab，T0.png->Aura03_Red.mat形成了2个依赖，按照出度大于1就要被打包的原则，T0.png需要被单独打包
 
 #### 1.2重复依赖关系删除
@@ -81,9 +87,13 @@ SmartBundleBuilder主要分为个阶段
 我们可以利用有向图的[Transitive reduction](https://en.wikipedia.org/wiki/Transitive_reduction)算法，保持到达度是一致的前提下对图进行简化。
 简化后的依赖关系如图所示
 
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/asset_depency_simple.jpg)
+
 
 ### 2.资源合并阶段
 
+这个阶段将会对没有必要单独打包的资源进行合并，避免打包粒度过细。算法如下：
+如果资源A只被资源B依赖，即A只有一个出度，那就将A与B进行合并，同时将A的入度合入新的组（即AB组）
 
 
 
@@ -92,6 +102,10 @@ SmartBundleBuilder主要分为个阶段
 [资源依赖正确性测试](https://gist.github.com/QXSoftware/35a07738f481245d08b948ead3743a4b)
 
 [JGraphT，一个强大的图结构和算法的实现库](https://github.com/jgrapht/jgrapht)
+
+[Unity AssetBundle Reporter，冗余检测与资源分析工具 ](https://github.com/akof1314/AssetBundleReporter)
+
+[Hero开发笔记-客户端资源更新](http://www.dpull.com/blog/2015-01-23-hero_assetbundle)
 
 
 
