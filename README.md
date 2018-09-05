@@ -95,6 +95,13 @@ SmartBundleBuilder主要分为个阶段
 这个阶段将会对没有必要单独打包的资源进行合并，避免打包粒度过细。算法如下：
 如果资源A只被资源B依赖，即A只有一个出度，那就将A与B进行合并，同时将A的入度合入新的组（即AB组）
 
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/asset_depency_simple.jpg)
+未合并
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_step_0.jpg)
+合并第一次
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/merge_final.jpg)
+合并第二次
+
 
 
 # 参考知识链接
