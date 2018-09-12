@@ -11,12 +11,12 @@ pipeline模式使每个处理步骤更独立，更有利于重用，可以根据
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/pipeline.jpeg)
 
 
-## Pipeline结构
+### Pipeline结构
 
-### Pipeline
+#### Pipeline
 Pipeline是一个list容器，list中存放ValeBase节点
 
-### ValeBase
+#### ValeBase
 
 ValeBase是pipeline中的节点
 
@@ -25,7 +25,7 @@ ValeBase是pipeline中的节点
 你也可以按照自己的需求实现ValveBase子类处理payload
 
 
-### FileDependcyAnylize代码举例
+##### FileDependcyAnylize代码举例
 
 ---
 ```C#
@@ -62,7 +62,7 @@ namespace SmartBundle
 
 **完成处理后调用Complete()，如果失败，调用Error()**
 
-### Payload
+#### Payload
 
 Payload是pipeline中需要处理的上下文，BundlePayload是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
 
@@ -97,7 +97,7 @@ public class BundlePayload: Payload
 }
 ```
 
-### Process()
+#### Process()
 
 使用pipeline.Process()方法执行pipeline，pipeline会按照顺序执行ValveBase，如果ValveBase返回了Error，则中断pipeline
 
