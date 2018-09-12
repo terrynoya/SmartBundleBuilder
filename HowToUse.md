@@ -5,26 +5,34 @@
 SmartBundleBuilder使用了[Pipeline](https://medium.com/@aaronweatherall/the-pipeline-pattern-for-fun-and-profit-9b5f43a98130)设计模式，
 pipeline模式使每个处理步骤更独立，更有利于重用，可以根据需要实现自己的pipeline
 
+
+### 内置的标准的流程如图：
+
+![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/pipeline.jpeg)
+
+
 ## Pipeline结构
 
 ### Pipeline
 Pipeline是一个list容器，list中存放ValeBase节点
 
 ### ValeBase
+
 ValeBase是pipeline中的节点
 
 派生子类实现具体的需求，例如FileDependcyAnylize是ValvBase的子类之一，用来生成文件依赖关系有向图
 
+你也可以按照自己的需求实现ValveBase子类
+
+**完成处理后调用Complete()，如果失败，调用Error()**
+
 ### Payload
 Payload是pipeline中需要处理的上下文，BundlePayload是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
 
-pipeline.Process()
+### Process()
 
-内置的标准的流程如图：
+使用pipeline.Process()方法执行pipeline，
 
-![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/pipeline.jpeg)
-
-pipeline中的处理节点都派生自ValveBase，按照需求实现对payload进行处理
 
 ### 实现一个处理文件依赖关系分析的ValvBase代码
 
