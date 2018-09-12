@@ -24,6 +24,9 @@ ValeBase是pipeline中的节点
 
 你也可以按照自己的需求实现ValveBase子类处理payload
 
+**ValveBase完成处理后调用Complete()，如果失败，调用Error()**
+
+
 
 ##### FileDependcyAnylize代码举例
 
@@ -56,11 +59,6 @@ namespace SmartBundle
     }
 }
 ```
-
-
-
-
-**完成处理后调用Complete()，如果失败，调用Error()**
 
 #### Payload
 
