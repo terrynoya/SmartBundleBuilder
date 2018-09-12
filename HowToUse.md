@@ -22,13 +22,15 @@ ValeBase是pipeline中的节点
 
 派生子类实现具体的需求，例如FileDependcyAnylize是ValvBase的子类之一，用来生成文件依赖关系有向图
 
-你也可以按照自己的需求实现ValveBase子类
+你也可以按照自己的需求实现ValveBase子类处理payload
 
 **完成处理后调用Complete()，如果失败，调用Error()**
 
 ### Payload
 
 Payload是pipeline中需要处理的上下文，BundlePayload是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
+
+每个具体的节点都需要实现VavleBase.Excute(payload)方法
 
 BundlePayload如下
 
