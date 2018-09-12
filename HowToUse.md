@@ -34,7 +34,7 @@ ValeBase是pipeline中的节点，用于处理具体问题
 
 你也可以按照自己的需求实现ValveBase子类处理payload
 
-**ValveBase完成处理后调用Complete()，如果失败，调用Error()**
+### **ValveBase完成处理后调用Complete()，如果失败，调用Error()**
 
 
 ##### FileDependcyAnylize代码举例
@@ -72,9 +72,7 @@ namespace SmartBundle
 
 #### Payload
 
-Payload是pipeline中需要处理的上下文，SmartBundleBuilder中的BundlePayload类是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
-
-每个具体的节点都需要实现VavleBase.Excute(payload)方法
+Payload是pipeline中需要处理的上下文，SmartBundleBuilder中的BundlePayload类是payload的子类，用来存放pipeline处理后产生的数据，或者给ValveBase提供参数
 
 BundlePayload如下
 
@@ -139,7 +137,7 @@ public static Pipeline CreateStandardPipeline()
 }
 ```
 
-## 反射配置pipeline
+## 通过反射配置pipeline
 
-SmartBundleBuilder可以通过反射构建pipeline，通过Rules.txt配置
+SmartBundleBuilder支持通过反射构建pipeline，你可以使用Rules.txt配置文件，设定需要打包的参数和流程
 
