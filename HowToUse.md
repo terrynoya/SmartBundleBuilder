@@ -3,7 +3,15 @@
 ## 使用Pipeline设计模式实现打包流程
 
 SmartBundleBuilder使用了[Pipeline](https://medium.com/@aaronweatherall/the-pipeline-pattern-for-fun-and-profit-9b5f43a98130)设计模式，
-pipeline模式使每个处理步骤更独立，更有利于重用，可以根据需要实现自己的pipeline
+pipeline模式优点
+
+* 每个处理步骤更独立
+
+* 更有利于重用
+
+* 可以根据需要实现自己的pipeline流程
+
+举例：比如音乐文件不需要进行依赖分析的，可以删除前4步。
 
 
 ### 内置的标准的流程如图：
@@ -110,7 +118,7 @@ public class BundlePayload: Payload
 /// <param name="files"></param>
 /// <param name="outputPath"></param>
 /// <returns></returns>
-public static Pipeline CreateStandardPipeline(string[] files, string outputPath)
+public static Pipeline CreateStandardPipeline()
 {
     Pipeline pipe = new Pipeline();
 
@@ -129,5 +137,7 @@ public static Pipeline CreateStandardPipeline(string[] files, string outputPath)
 }
 ```
 
+## 反射配置pipeline
 
-每个模块可以根据需求更换，比如音乐文件不需要进行依赖分析的，可以删除前4步。
+SmartBundleBuilder可以通过反射构建pipeline，通过Rules.txt配置
+
