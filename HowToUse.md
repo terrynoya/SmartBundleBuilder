@@ -24,6 +24,42 @@ ValeBase是pipeline中的节点
 
 你也可以按照自己的需求实现ValveBase子类处理payload
 
+
+### FileDependcyAnylize代码举例
+
+---
+```C#
+/// <summary>
+/// 资源依赖关系分析
+/// </summary>
+namespace SmartBundle
+{
+    public class FileDependcyAnylize : ValveBase
+    {
+        public override void Excute(Payload payload)
+        {
+            BundlePayload context = (BundlePayload) payload;
+            MAssetFileDependencyGraphGenerator fileGraphGen =
+                new MAssetFileDependencyGraphGenerator(context.FileDependcyGraph);
+            string[] filePathList = context.Files;
+            for (int i = 0; i < filePathList.Length; i++)
+            {
+                string filePath = filePathList[i];
+                fileGraphGen.AddFileFromPath(filePath);
+            }
+            MDirectedGraph graph = fileGraphGen.Graph;
+            //删除多余依赖关系
+            TransitiveReduction.Reduce(graph);
+
+            this.Complete();
+        }
+    }
+}
+```
+
+
+
+
 **完成处理后调用Complete()，如果失败，调用Error()**
 
 ### Payload
@@ -66,40 +102,7 @@ public class BundlePayload: Payload
 使用pipeline.Process()方法执行pipeline，pipeline会按照顺序执行ValveBase，如果ValveBase返回了Error，则中断pipeline
 
 
-### 实现一个处理文件依赖关系分析的ValvBase代码
-
----
-```C#
-/// <summary>
-/// 资源依赖关系分析
-/// </summary>
-namespace SmartBundle
-{
-    public class FileDependcyAnylize : ValveBase
-    {
-        public override void Excute(Payload payload)
-        {
-            BundlePayload context = (BundlePayload) payload;
-            MAssetFileDependencyGraphGenerator fileGraphGen =
-                new MAssetFileDependencyGraphGenerator(context.FileDependcyGraph);
-            string[] filePathList = context.Files;
-            for (int i = 0; i < filePathList.Length; i++)
-            {
-                string filePath = filePathList[i];
-                fileGraphGen.AddFileFromPath(filePath);
-            }
-            MDirectedGraph graph = fileGraphGen.Graph;
-            //删除多余依赖关系
-            TransitiveReduction.Reduce(graph);
-
-            this.Complete();
-        }
-    }
-}
-```
-
-
-## 代码实现
+## 打包pipeline的标准流程代码实现
 
 ---
 ```C#
