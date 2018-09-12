@@ -27,11 +27,41 @@ ValeBase是pipeline中的节点
 **完成处理后调用Complete()，如果失败，调用Error()**
 
 ### Payload
+
 Payload是pipeline中需要处理的上下文，BundlePayload是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
+
+BundlePayload如下
+
+```C#
+public class BundlePayload: Payload
+{
+    //需要处理的文件列表
+    public string[] Files;
+    //FileDependcyAnylize执行后，产生的文件依赖关系有向图
+    public MDirectedGraph FileDependcyGraph;
+    public MDirectedGraph BundleDependcyGraph;
+
+    public IBuildOptionParser OptionParser;
+    public AssetBundleBuildConfigVO BulidConfig;
+    //Assetbundle输出目录
+    public string OutputPath;
+    public string OuputReletivePath;
+    //Assetbundle输出平台
+    public BuildEnums.BuildPlatform Platform;
+    //Assetbundle扩展名
+    public string BundleExtension;
+
+    public BundlePayload()
+    {
+        this.FileDependcyGraph = new MDirectedGraph();
+        this.BundleDependcyGraph = new MDirectedGraph();
+    }
+}
+```
 
 ### Process()
 
-使用pipeline.Process()方法执行pipeline，
+使用pipeline.Process()方法执行pipeline，pipeline会按照顺序执行ValveBase，如果ValveBase返回了Error，则中断pipeline
 
 
 ### 实现一个处理文件依赖关系分析的ValvBase代码
