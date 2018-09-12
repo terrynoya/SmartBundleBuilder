@@ -1,7 +1,11 @@
 # How To Use
 
 ## 使用Pipeline设计模式实现打包流程
-SmartBundleBuilder使用了Pipeline设计模式，内置的标准的流程如图：
+
+SmartBundleBuilder使用了[Pipeline](https://medium.com/@aaronweatherall/the-pipeline-pattern-for-fun-and-profit-9b5f43a98130)设计模式，
+pipeline模式使每个处理步骤更独立，更有利于重用，可以根据需要实现自己的pipeline
+
+内置的标准的流程如图：
 
 ![GitHub](https://github.com/terrynoya/SmartBundleBuilder/raw/master/doc/pipeline.jpeg)
 
