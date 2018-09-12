@@ -24,7 +24,7 @@
 
 [点我去看官方文档](https://docs.unity3d.com/Manual/AssetBundles-Troubleshooting.html) 
 
->Objects that are explicitly assigned to an AssetBundle will only be built into that AssetBundle. An Object is “explicitly assigned” when >that Object’s AssetImporter has its assetBundleName property set to a non-empty string.
+>Objects that are explicitly assigned to an AssetBundle will only be built into that AssetBundle. An Object is “explicitly assigned” when that Object’s AssetImporter has its assetBundleName property set to a non-empty string.
 
 >Any Object that is not explicitly assigned in an AssetBundle will be included in all AssetBundles that contain 1 or more Objects that >reference the untagged Object.
 
