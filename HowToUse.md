@@ -26,14 +26,15 @@ Pipeline是一个list容器，list中存放ValeBase节点
 
 #### ValeBase
 
-ValeBase是pipeline中的节点
+ValeBase是pipeline中的节点，用于处理具体问题
 
-派生子类实现具体的需求，例如FileDependcyAnylize是ValvBase的子类之一，用来生成文件依赖关系有向图
+派生子类通过实现ValeBase.Excute(Payload)方法来满足具体的需求
+
+例如SmartBundleBuilder中的FileDependcyAnylize类是ValvBase的子类之一，用来生成文件依赖关系有向图
 
 你也可以按照自己的需求实现ValveBase子类处理payload
 
 **ValveBase完成处理后调用Complete()，如果失败，调用Error()**
-
 
 
 ##### FileDependcyAnylize代码举例
@@ -47,6 +48,7 @@ namespace SmartBundle
 {
     public class FileDependcyAnylize : ValveBase
     {
+        //通过覆盖这个方法实现具体功能
         public override void Excute(Payload payload)
         {
             BundlePayload context = (BundlePayload) payload;
@@ -70,7 +72,7 @@ namespace SmartBundle
 
 #### Payload
 
-Payload是pipeline中需要处理的上下文，BundlePayload是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
+Payload是pipeline中需要处理的上下文，SmartBundleBuilder中的BundlePayload类是payload的子类，用来存放pipeline处理后产生的数据，或者提供参数
 
 每个具体的节点都需要实现VavleBase.Excute(payload)方法
 
