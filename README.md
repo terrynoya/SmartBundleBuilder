@@ -12,7 +12,7 @@
 
 *自动化的打包粒度管理
 
-*支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系，最终导出AssetBundle包的依赖关系
+*支持导出dot文件，利用[graphviz](https://www.graphviz.org/)查看资源的依赖关系和AssetBundle包的依赖关系
 
 
 # Troubleshooting
